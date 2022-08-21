@@ -1,0 +1,18 @@
+
+
+- normalize url path
+- lookup os path
+  - based on url host and url path
+    - /~user/ map to user home
+    - base path based on url host
+    - if dir and index.html present, use index.html
+- generate content -- body, content type, modified time
+
+
+- if dir and dir listing available
+  gen dir list
+  else error not found
+- if .cgi generate
+
+get and post handling?
+

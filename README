@@ -1,0 +1,30 @@
+Seth Livy
+
+# This is Simon Marlow's HWS. I'm just playing with it.
+
+Tim Newsham
+
+- This is Simon Marlow's HWS.  I'm just playing with it.
+
+- build with Cabal as usual.
+
+- There was a bug where you could access ../../../../etc/passwd.
+  I added some path normalization code to Main.hs.
+  I also had it strip ":"s from the path to avoid any streams and
+  driver problems under win32 (if you happen to run it there.. not sure
+  if it does run in win32 or not).
+
+- It will happily follow symlinks out of the document root.  This isn't
+  easily fixed.  I leave this one to the web server admin.
+
+- The logging code isnt careful about data it logs.  It's possible
+  to enclose quotes to confuse any post-processor.
+
+- The code doesn't unquote the URL path it receives.
+
+- added code to redirect /some/dir to /some/dir/.
+- added code to list directory if index.html is not present
+  - the code does not currently quote filenames.  This may
+    lead to XSS attacks in some rare instances.
+- added code to decode urls (ie %XX).
+
